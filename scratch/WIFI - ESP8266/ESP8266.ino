@@ -2,7 +2,9 @@
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>
 #include <vector>  // Correcto para usar std::vector
-#include <SHA256.h>  // Librería para SHA256
+#include <sha256.h> // Incluir la clase sha256.h que has proporcionado
+
+#define SHA256_SIZE 32 // El tamaño del hash SHA256 es 32 bytes
 
 ESP8266WebServer server(80);
 
@@ -10,14 +12,15 @@ unsigned long sessionLimit = 900000; // 15 minutos de tiempo para session activa
 unsigned long lastLoginTime = 0;  // Para gestionar la expiración de la sesión
 const int Puerta = 2; // Pin del LED
 
-struct Session {
+// Renombramos 'Session' a 'UserSession' para evitar el conflicto
+struct UserSession {
   String User;
   String PassHash; // Usaremos el hash de la contraseña
   String Rol; // "admin" o "user"
   String Token;     // Token de sesión único para cada usuario
 };
 
-std::vector<Session> UsuariosLogueados;  // Vector para almacenar los usuarios logueados
+std::vector<UserSession> UsuariosLogueados;  // Vector para almacenar los usuarios logueados
 
 // Función para generar un token único
 String generarToken() {
@@ -25,23 +28,29 @@ String generarToken() {
   return token;
 }
 
-// Función para generar el hash SHA256 de la contraseña
+// Función para generar el hash SHA256 de la contraseña utilizando la clase `SHA256` proporcionada
 String generarHash(const String& pass) {
-  uint8_t hash[SHA256_SIZE];
-  SHA256.begin();
-  SHA256.print(pass);
-  SHA256.end(hash);
-  
-  // Convertimos el hash a un string hexadecimal
+  SHA256 sha256;  // Crear un objeto de la clase SHA256
+  sha256.reset(); // Reiniciar el objeto SHA256 (equivalente a init())
+
+  // Usar `add()` para agregar los datos (en este caso la contraseña)
+  sha256.add((const void*)pass.c_str(), pass.length());
+
+  // Obtener el hash resultante como un string hexadecimal
+  char* hash = sha256.getHash();  // Obtiene el hash como un string hexadecimal
+
+  // Convertir el hash hexadecimal a un String y retornarlo
   String hashStr = "";
   for (int i = 0; i < SHA256_SIZE; i++) {
-    hashStr += String(hash[i], HEX);
+    char hex[3];
+    sprintf(hex, "%02x", (unsigned char)hash[i]);  // Convertir cada byte a un valor hexadecimal
+    hashStr += String(hex);
   }
   return hashStr;
 }
 
 // Verificar usuario con hash de contraseña
-bool verificarUsuario(const String& User, const String& Pass, Session& usuario) {
+bool verificarUsuario(const String& User, const String& Pass, UserSession& usuario) {
   for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
     if (UsuariosLogueados[i].User == User) {
       // Comparamos el hash de la contraseña
@@ -60,14 +69,14 @@ void handleLogin() {
     String User = server.arg("user");
     String Pass = server.arg("pass");
 
-    Session usuario;
+    UserSession usuario;
     if (verificarUsuario(User, Pass, usuario)) {
       // Generamos un nuevo token para este usuario y lo añadimos
       usuario.Token = generarToken();
       // Si es válido, lo agregamos al vector de usuarios logueados
       UsuariosLogueados.push_back(usuario);
       lastLoginTime = millis(); // Marcar el tiempo del último login
-       server.send(200, "text/plain", "Login exitoso. Token: " + usuario.Token);
+      server.send(200, "text/plain", "Login exitoso. Token: " + usuario.Token);
     } else {
       // Si no es válido, mostramos un mensaje de error
       server.send(401, "text/plain", "Error: Usuario o contraseña incorrectos.");
@@ -123,7 +132,7 @@ void handleAddUser() {
     }
 
     // Si el usuario no existe, agregamos el nuevo usuario
-    Session newSession;
+    UserSession newSession;
     newSession.User = newUser;
     newSession.PassHash = generarHash(newPass); // Guardamos el hash de la contraseña
     newSession.Rol = newRol;
@@ -219,7 +228,7 @@ void setup() {
   server.begin();
 }
 
- void loop() {
+void loop() {
   server.handleClient(); // Mantenemos el servidor funcionando
 
   // Mostrar los usuarios logueados cada cierto tiempo
@@ -233,6 +242,3 @@ void setup() {
 
   delay(10000);  // Muestra los usuarios cada 10 segundos
 }
-
-
-
