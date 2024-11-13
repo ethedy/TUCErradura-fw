@@ -3,28 +3,27 @@
 #include <WiFiManager.h>
 #include <vector>  // Correcto para usar std::vector
 //  #include <sha256.h> // Incluir la clase sha256.h que has proporcionado
+#include <string>
+#include "wifi_selector.h"
+#include "services.h"
+
+using namespace std;
 
 #define SHA256_SIZE 32 // El tamaño del hash SHA256 es 32 bytes
 
 ESP8266WebServer server(80);
 
-unsigned long sessionLimit = 900000; // 15 minutos de tiempo para session activa
-unsigned long lastLoginTime = 0;  // Para gestionar la expiración de la sesión
-const int Puerta = 2; // Pin del LED
-
-// Renombramos 'Session' a 'UserSession' para evitar el conflicto
-struct UserSession {
-  String User;
-  String PassHash; // Usaremos el hash de la contraseña
-  String Rol; // "admin" o "user"
-  String Token;     // Token de sesión único para cada usuario
-};
+unsigned long sessionLimit = 900000;    // 15 minutos de tiempo para session activa
+unsigned long lastLoginTime = 0;        // Para gestionar la expiración de la sesión
+const int Puerta = 2;                   // Pin del LED
 
 std::vector<UserSession> UsuariosLogueados;  // Vector para almacenar los usuarios logueados
 
 // Función para generar un token único
-String generarToken() {
-  String token = String(millis(), HEX) + String(random(0, 255), HEX);  // Usamos el tiempo y un valor aleatorio como token
+string generarToken() {
+  string token;
+//  string token = string(millis(), HEX) + string(random(0, 255), HEX);  // Usamos el tiempo y un valor aleatorio como token
+//  return token;
   return token;
 }
 
@@ -52,7 +51,7 @@ String generarToken() {
 // Verificar usuario con hash de contraseña
 bool verificarUsuario(const String& User, const String& Pass, UserSession& usuario) {
   for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
-    if (UsuariosLogueados[i].User == User) {
+    if (UsuariosLogueados[i].User == User.c_str()) {
       // Comparamos el hash de la contraseña
       //if (UsuariosLogueados[i].PassHash == generarHash(Pass)) {
         usuario = UsuariosLogueados[i]; // Devolvemos la información del usuario encontrado
@@ -70,13 +69,14 @@ void handleLogin() {
     String Pass = server.arg("pass");
 
     UserSession usuario;
+
     if (verificarUsuario(User, Pass, usuario)) {
       // Generamos un nuevo token para este usuario y lo añadimos
       usuario.Token = generarToken();
       // Si es válido, lo agregamos al vector de usuarios logueados
       UsuariosLogueados.push_back(usuario);
       lastLoginTime = millis(); // Marcar el tiempo del último login
-      server.send(200, "text/plain", "Login exitoso. Token: " + usuario.Token);
+      server.send(200, "text/plain", "Login exitoso. Token: " /*+ usuario.Token.c_str()*/);
     } else {
       // Si no es válido, mostramos un mensaje de error
       server.send(401, "text/plain", "Error: Usuario o contraseña incorrectos.");
@@ -94,7 +94,7 @@ void handleOpenDoor() {
 
     bool userLoggedIn = false;
     for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
-      if (UsuariosLogueados[i].User == User && UsuariosLogueados[i].Token == Token) {
+      if (UsuariosLogueados[i].User == User.c_str() && UsuariosLogueados[i].Token == Token.c_str()) {
         userLoggedIn = true;  // Si encontramos el usuario con el token correcto
         break;
       }
@@ -125,7 +125,7 @@ void handleAddUser() {
 
     // Verificar si el usuario ya existe
     for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
-      if (UsuariosLogueados[i].User == newUser) {
+      if (UsuariosLogueados[i].User == newUser.c_str()) {
         server.send(400, "text/plain", "Error: El usuario ya existe.");
         return;
       }
@@ -133,9 +133,9 @@ void handleAddUser() {
 
     // Si el usuario no existe, agregamos el nuevo usuario
     UserSession newSession;
-    newSession.User = newUser;
+    newSession.User = newUser.c_str();
     //newSession.PassHash = generarHash(newPass); // Guardamos el hash de la contraseña
-    newSession.Rol = newRol;
+    newSession.Rol = newRol.c_str();
 
     UsuariosLogueados.push_back(newSession);
     server.send(200, "text/plain", "Usuario agregado exitosamente.");
@@ -151,7 +151,7 @@ void handleDeleteUser() {
 
     // Buscar el usuario en el vector
     for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
-      if (UsuariosLogueados[i].User == userToDelete) {
+      if (UsuariosLogueados[i].User == userToDelete.c_str()) {
         // Eliminar el usuario encontrado
         UsuariosLogueados.erase(UsuariosLogueados.begin() + i);
         server.send(200, "text/plain", "Usuario eliminado exitosamente.");
@@ -171,9 +171,9 @@ void mostrarUsuariosLogueados() {
   Serial.println("Usuarios logueados:");
   for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
     Serial.print("Usuario: ");
-    Serial.print(UsuariosLogueados[i].User);
+    Serial.print(UsuariosLogueados[i].User.c_str());
     Serial.print(", Rol: ");
-    Serial.println(UsuariosLogueados[i].Rol);
+    Serial.println(UsuariosLogueados[i].Rol.c_str());
   }
 }
 
@@ -189,8 +189,9 @@ void setup() {
     esp_delay(500);
     Serial.print(".");
   }
-  Serial.printf("\nConectado con MUTEX!!!\nDireccion IP: %s\n", WiFi.localIP());
+  Serial.printf("\nConectado con MUTEX!!!\nDireccion IP: %s %s\n", WiFi.localIP(), WiFi.getHostname());
 
+  
   //  WiFiManager wiFiManager;
   //  wiFiManager.resetSettings();
   // if (!wiFiManager.autoConnect("MUTEX", "sqlSDK@1967")) {
