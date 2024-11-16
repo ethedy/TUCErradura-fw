@@ -3,6 +3,7 @@
 #include <WiFiManager.h>
 #include <vector>  // Correcto para usar std::vector
 #include <sha256.h> // Incluir la clase sha256.h que has proporcionado
+#include "services.h"
 
 #define SHA256_SIZE 32 // El tamaño del hash SHA256 es 32 bytes
 
@@ -13,12 +14,20 @@ unsigned long lastLoginTime = 0;  // Para gestionar la expiración de la sesión
 const int Puerta = 2; // Pin del LED
 
 // Renombramos 'Session' a 'UserSession' para evitar el conflicto
-struct UserSession {
+/*struct UserSession {
   String User;
   String PassHash; // Usaremos el hash de la contraseña
   String Rol; // "admin" o "user"
-  String Token;     // Token de sesión único para cada usuario
+  String Token;
+  long lastLogin;     // Token de sesión único para cada usuario
+};*/
+
+struct User{
+  String User;
+  String PassHash; // Usaremos el hash de la contraseña
+  String Rol; // "admin" o "user"
 };
+
 
 std::vector<UserSession> UsuariosLogueados;  // Vector para almacenar los usuarios logueados
 
@@ -49,100 +58,127 @@ String generarHash(const String& pass) {
   return hashStr;
 }
 
-// Verificar usuario con hash de contraseña
-bool verificarUsuario(const String& User, const String& Pass, UserSession& usuario) {
-  for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
-    if (UsuariosLogueados[i].User == User) {
-      // Comparamos el hash de la contraseña
-      if (UsuariosLogueados[i].PassHash == generarHash(Pass)) {
-        usuario = UsuariosLogueados[i]; // Devolvemos la información del usuario encontrado
-        return true;
-      }
-    }
-  }
-  return false;
-}
 
 // Función para manejar la solicitud de login
 void handleLogin() {
+
+  UserSession usuario; 
+
+  //TODO: verificar que el usuario se encuentra logueado 
+
+  if(server.hasArg("Token")){
+    if(Validarsesion(server.arg("Token"), usuario)){
+      server.send(200, "text/plain", "Usuario ya conectado.");
+      return;
+    }
+  }
+
   if (server.hasArg("user") && server.hasArg("pass")) {
     String User = server.arg("user");
     String Pass = server.arg("pass");
+    SecurityServices Validacion;
 
-    UserSession usuario;
-    if (verificarUsuario(User, Pass, usuario)) {
-      // Generamos un nuevo token para este usuario y lo añadimos
-      usuario.Token = generarToken();
-      // Si es válido, lo agregamos al vector de usuarios logueados
-      UsuariosLogueados.push_back(usuario);
-      lastLoginTime = millis(); // Marcar el tiempo del último login
-      server.send(200, "text/plain", "Login exitoso. Token: " + usuario.Token);
+    usuario = Validacion.login_user(User, Pass);
+
+    if (usuario.StatusCode == 0) {
+     // Generamos un nuevo token para este usuario y lo añadimos
+     usuario.Token = generarToken();
+     usuario.lastLogin = millis(); // Marcar el tiempo del último login
+     // Si es válido, lo agregamos al vector de usuarios logueados
+     UsuariosLogueados.push_back(usuario);
+
+     server.send(200, "text/plain", "Login exitoso. Token: " + usuario.Token);
     } else {
-      // Si no es válido, mostramos un mensaje de error
-      server.send(401, "text/plain", "Error: Usuario o contraseña incorrectos.");
-    }
-  } else {
-    server.send(400, "text/plain", "Error: Parámetros de usuario y contraseña faltantes.");
-  }
+            // Si no es válido, mostramos un mensaje de error
+            server.send(401, "text/plain", "Error: Usuario o contraseña incorrectos.");
+          }
+          } else {
+          server.send(400, "text/plain", "Error: Parámetros de usuario y contraseña faltantes.");
+          }
+  
 }
+
 
 // Lógica para abrir la puerta
 void handleOpenDoor() {
-  if (server.hasArg("user") && server.hasArg("token")) {
-    String User = server.arg("user");  // Recuperamos el usuario desde los parámetros del POST
-    String Token = server.arg("token"); // Recuperamos el token desde los parámetros del POST
 
-    bool userLoggedIn = false;
-    for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
-      if (UsuariosLogueados[i].User == User && UsuariosLogueados[i].Token == Token) {
-        userLoggedIn = true;  // Si encontramos el usuario con el token correcto
-        break;
-      }
-    }
+  UserSession usuario; 
 
-    if (userLoggedIn) {
-      // El usuario está logueado, proceder a abrir la puerta
+  if(server.hasArg("Token")){
+    if(Validarsesion(server.arg("Token"), usuario)){
+       // El usuario está logueado, proceder a abrir la puerta
       digitalWrite(Puerta, LOW);  // Abre la puerta
       server.send(200, "text/plain", "Puerta abierta exitosamente.");
       delay(5000);  // Mantiene la puerta abierta durante 5 segundos
       digitalWrite(Puerta, HIGH);  // Cierra la puerta
-    } else {
+      return;
+    }else {
       // El usuario no está logueado, mostramos un mensaje de error
-      server.send(401, "text/plain", "Error: Usuario no autenticado.");
+      server.send(401, "text/plain", "Error(1000): Usuario no autenticado.");
     }
-  } else {
+  }else {
     // Si no se recibe el parámetro 'user' o 'token', mostramos un mensaje de error
-    server.send(400, "text/plain", "Error: Parámetros 'user' o 'token' faltantes.");
+    server.send(401, "text/plain", "Error: Parámetros 'user' o 'token' faltantes.");
   }
-}
+
 
 // Función para agregar un nuevo usuario
 void handleAddUser() {
-  if (server.hasArg("user") && server.hasArg("pass") && server.hasArg("rol")) {
-    String newUser = server.arg("user");
-    String newPass = server.arg("pass");
-    String newRol = server.arg("rol");
 
-    // Verificar si el usuario ya existe
-    for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
-      if (UsuariosLogueados[i].User == newUser) {
-        server.send(400, "text/plain", "Error: El usuario ya existe.");
-        return;
+  UserSession usuario; 
+
+  if(server.hasArg("Token")){
+    if(Validarsesion(server.arg("Token"), usuario)){
+      if(usuario.Rol == "admin"){
+
+        //llamar funcion de Thedy (addUser)
+
+         // Si el usuario no existe, agregamos el nuevo usuario
+              User newUser;
+              newUser.User = newUser;
+              newUser.PassHash = generarHash(newPass); // Guardamos el hash de la contraseña
+              newUser.Rol = newRol;
+              if(SaveNewUser){
+                   server.send(200, "text/plain", "Usuario agregado exitosamente.");
+              }else{
+                  server.send(400, "text/plain", "Erro(1005): Usario no agregado")
+                }
+              }
       }
+      return;
     }
+  }
+  /*
+  if (server.hasArg("user") && server.hasArg("pass")) {
+    String User = server.arg("user");
+    String Pass = server.arg("pass");
+    String newRol = server.arg("nweRol");
+    String newUser = server.arg("newUser");
+    String newPass = server.arg("newPass");
 
-    // Si el usuario no existe, agregamos el nuevo usuario
-    UserSession newSession;
-    newSession.User = newUser;
-    newSession.PassHash = generarHash(newPass); // Guardamos el hash de la contraseña
-    newSession.Rol = newRol;
+    //verificar si la sesion es valida
 
-    UsuariosLogueados.push_back(newSession);
-    server.send(200, "text/plain", "Usuario agregado exitosamente.");
+    if(ValidarSesion(User,Token){
+        //si tengo sesion me fijo que sea Admin
+
+        if (EsAdmin(User,Token)){
+              // Si el usuario no existe, agregamos el nuevo usuario
+              User newUser;
+              newUser.User = newUser;
+              newUser.PassHash = generarHash(newPass); // Guardamos el hash de la contraseña
+              newUser.Rol = newRol;
+              if(SaveNewUser){
+                   server.send(200, "text/plain", "Usuario agregado exitosamente.");
+              }else{
+                  server.send(400, "text/plain", "Erro(1005): Usario no agregado")
+                }
+              }
+        }
   } else {
     server.send(400, "text/plain", "Error: Parámetros faltantes (user, pass, rol).");
   }
-}
+  */
+
 
 // Función para eliminar un usuario
 void handleDeleteUser() {
@@ -176,6 +212,35 @@ void mostrarUsuariosLogueados() {
     Serial.println(UsuariosLogueados[i].Rol);
   }
 }
+
+bool Validarsesion(String Token, UserSession& u){
+
+  //TODO: realizar un chequeo que la Session no expiro
+
+     bool userLoggedIn = false;
+    for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
+      if (UsuariosLogueados[i].User == User && UsuariosLogueados[i].Token == Token) {
+        userLoggedIn = true;  // Si encontramos el usuario con el token correcto
+         // El usuario ya está logueado, se devuelve el mismo token
+        break;
+      }
+    }
+    return userLoggedIn; 
+}
+
+/*bool EsAdmin(String User, String Token){
+     bool EsAdmin = false;
+    for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
+      if (UsuariosLogueados[i].User == User && UsuariosLogueados[i].Token == Token) {
+        if(UsuariosLogueados[i].Rol == "Admin"){
+            EsAdmin = true;
+            break;
+        }  // Si encontramos el usuario con el token correcto
+        
+      }
+    }
+    return EsAdmin; 
+}*/
 
 void setup() {
   Serial.begin(115200);
