@@ -1,30 +1,69 @@
 
 #include "services.h"
+#include "repositorios.h"
+#include <string>
+
+using namespace std;
 
 UserSession
 SecurityServices::login_user(const String& user_name, const String& pass) 
 {
   UserSession result;
 
-  if ((user_name == "brian" && pass == "1234") || 
-      (user_name == "lautaro" && pass == "1234") || 
-      (user_name == "kike" && pass == "1234")) 
+  //  algunas validaciones para usuario y pass
+  //
+  if (
+    user_name == nullptr || 
+    user_name.trim().length() == 0 ||
+    pass == nullptr ||
+    pass.trim().length() == 0)
   {
-    result = {
-      .User = user_name,
-      .PassHash = "1234ABCD",
-      .Rol = (user_name == "brian") ? "admin" : "user",
-      .Token = user_name + pass,
-      .Status = "OK",
-      .StatusCode = 0
-    };
+    result.StatusCode = -100;
+    result.Status = "Nombre de usuario o contraseña vacios o nulos";
   }
-  else 
+  //
+  //  instanciar un repositorio e invocar al metodo correspondiente
+  //
+  RepositorioUsuarios userRepo;
+
+  UsuarioDTO* usuario = userRepo.getUserFromId(user_name.c_str()); 
+
+  if (usuario != nullptr)
   {
-    result = {
-      .Status = "Las credenciales solicitadas son invalidas",
-      .StatusCode = 100
-    };
+    if (usuario->Password == pass.c_str())
+    {
+      //  correcto!!!
+      //
+      result.User = user_name;
+      result.Rol = usuario->Rol;    //  ver casting
+      result.StatusCode = 0;
+      result.Status = "OK";
+    }
+    else
+    {
+      result.StatusCode = -300;
+      result.Status = "Credenciales invalidas!!";
+    }
   }
-  return result;
+  else
+  {
+    result.StatusCode = -200;
+    result.Status = "El usuario no existe";
+  }
 }
+
+
+bool 
+SecurityServices::add_user(const String& id, const String& user_name, 
+                           const String& pass, const String& rol)
+{
+  RepositorioUsuarios userRepo;
+
+  if (!userRepo.addUser())
+  {
+    //  deberiamos poner algun mensaje
+    return false;
+  }
+  return true;
+}
+

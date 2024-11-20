@@ -206,7 +206,7 @@ void setup() {
   delay(10);
 
   WiFi.mode(WIFI_STA);
-  WiFi.begin("MUTEX", "sqlSDK@1967");
+  WiFi.begin("MUTEX", "****");
   
   while (WiFi.status() != WL_CONNECTED) 
   {
