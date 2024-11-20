@@ -1,0 +1,15 @@
+# ninja log v6
+2	14	7510049508228844	clean	afab40eed09bfd8e
+5	682	7525747630677025	CMakeFiles/db_maqueta.dir/main.cpp.obj	f4a5b5a9f9da75df
+717	931	7525747637794629	db_maqueta.exe	503072d92b633cbf
+371	717	7525747634340750	CMakeFiles/db_maqueta.dir/database.cpp.obj	7af432172bf262c4
+2	307	7526124703949901	build.ninja	dc52569a0998849b
+363	601	7525747634255714	CMakeFiles/db_maqueta.dir/users.cpp.obj	a831687b77f4eeed
+8	371	7525747630706955	CMakeFiles/db_maqueta.dir/datatable.cpp.obj	c86fd0b67d02c633
+10	363	7525747630732133	CMakeFiles/db_maqueta.dir/user.cpp.obj	9f59b1c025cde458
+126	1405	7526124739729928	CMakeFiles/db_maqueta.dir/users.cpp.obj	c692d70910fe15fb
+51	1453	7526124738979927	CMakeFiles/db_maqueta.dir/datatable.cpp.obj	4a2361bc61230df2
+83	1525	7526124739299938	CMakeFiles/db_maqueta.dir/user.cpp.obj	8e7a51b6720052cd
+157	1696	7526124740029909	CMakeFiles/db_maqueta.dir/database.cpp.obj	a4a362313c8ea106
+16	1962	7526124738629990	CMakeFiles/db_maqueta.dir/main.cpp.obj	d175f5aa9986207e
+1963	2604	7526124758089928	db_maqueta.exe	670cee9dcd4ddd0e

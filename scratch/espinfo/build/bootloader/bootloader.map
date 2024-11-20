@@ -1,0 +1,1148 @@
+Archive member included to satisfy reference by file (symbol)
+
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+                              (call_start_cpu)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o) (bootloader_utility_load_partition_table)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o) (bootloader_init)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o) (bootloader_mmap)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o) (esp_image_load)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o) (esp_partition_table_basic_verify)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o) (bootloader_common_ota_select_valid)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o) (g_rom_flashchip)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o) (spi_flash_get_id_raw)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o) (esp_log_early_timestamp)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o) (ets_vprintf)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o) (crc32_le)
+F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o) (esp_fast_boot_get_info)
+P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libcore.a(phy.o)
+                              F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o) (phy_reg_default)
+
+Allocating common symbols
+Common symbol       size              file
+
+esp_image_spi_freq_t
+                    0x4               F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .xt.lit        0x00000000       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .xt.prop       0x00000000       0xe4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ COMMON         0x00000000        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .literal.bootloader_utility_fast_boot_image
+                0x00000000       0x14 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .rodata.bootloader_utility_fast_boot_image.str1.4
+                0x00000000       0x15 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .text.bootloader_utility_fast_boot_image
+                0x00000000       0x35 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .xt.lit        0x00000000       0x40 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .xt.prop       0x00000000      0x4ec F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .xt.lit        0x00000000       0x20 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .xt.prop       0x00000000      0x228 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .literal.bootloader_flash_write
+                0x00000000       0x28 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .literal.bootloader_flash_erase_sector
+                0x00000000        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .rodata.bootloader_flash_write.str1.4
+                0x00000000       0xa7 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .text.bootloader_flash_write
+                0x00000000       0x9d F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .text.bootloader_flash_erase_sector
+                0x00000000       0x15 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .xt.lit        0x00000000       0x50 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .xt.prop       0x00000000      0x444 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .literal.esp_image_verify_bootloader
+                0x00000000        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .text.esp_image_verify_bootloader
+                0x00000000       0x41 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .xt.lit        0x00000000       0x40 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .xt.prop       0x00000000      0x3e4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .xt.lit        0x00000000        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .xt.prop       0x00000000       0xcc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .literal.bootloader_common_check_long_hold_gpio
+                0x00000000       0x78 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .rodata.bootloader_common_check_long_hold_gpio.str1.4
+                0x00000000       0x26 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .text.bootloader_common_check_long_hold_gpio
+                0x00000000      0x290 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .xt.lit        0x00000000       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .xt.prop       0x00000000      0x414 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .literal.spi_flash_program
+                0x00000000       0x20 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .literal.__spi_flash_write
+                0x00000000        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .literal.__spi_flash_read
+                0x00000000       0x10 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .literal.spi_flash_write_status
+                0x00000000        0xc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .literal.spi_flash_check_wr_protect
+                0x00000000       0x58 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .literal.spi_flash_erase_sector
+                0x00000000       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .literal.spi_flash_read
+                0x00000000       0x24 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .literal.spi_flash_write
+                0x00000000       0x3c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .literal.spi_flash_erase_range
+                0x00000000       0x10 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .literal.spi_flash_cache2phys
+                0x00000000       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .literal.spi_flash_get_chip_size
+                0x00000000        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.spi_flash_program
+                0x00000000       0xd8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.__spi_flash_write
+                0x00000000       0x23 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.__spi_flash_read
+                0x00000000       0x31 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.spi_flash_write_status
+                0x00000000       0x2a F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.spi_flash_check_wr_protect
+                0x00000000      0x195 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.spi_flash_erase_sector
+                0x00000000       0x56 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.spi_flash_read
+                0x00000000      0x109 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.spi_flash_write
+                0x00000000      0x176 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.spi_flash_erase_range
+                0x00000000       0x67 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.spi_flash_cache2phys
+                0x00000000       0x4e F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.spi_flash_get_chip_size
+                0x00000000        0x7 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .xt.lit        0x00000000       0xd0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .xt.prop       0x00000000      0xb34 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .literal.spi_flash_write_status_raw
+                0x00000000       0x1c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .literal.spi_flash_erase_sector_raw
+                0x00000000       0x14 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .literal.spi_flash_write_raw
+                0x00000000        0xc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .literal.spi_flash_read_raw
+                0x00000000        0xc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .text.spi_flash_write_status_raw
+                0x00000000       0x5c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .text.spi_flash_erase_sector_raw
+                0x00000000       0x50 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .text.spi_flash_write_raw
+                0x00000000       0x43 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .text.spi_flash_read_raw
+                0x00000000       0x43 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .xt.lit        0x00000000       0x58 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .xt.prop       0x00000000      0x348 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .xt.lit        0x00000000       0x10 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .xt.prop       0x00000000       0xcc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .xt.lit        0x00000000       0x20 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .xt.prop       0x00000000       0xe4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .literal.crc16_le
+                0x00000000        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .literal.esp_crc8
+                0x00000000        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .text.crc16_le
+                0x00000000       0x3b F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .text.esp_crc8
+                0x00000000       0x21 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .rodata.crc8_le_table
+                0x00000000      0x100 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .rodata.crc16_le_table
+                0x00000000      0x200 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .xt.lit        0x00000000       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .xt.prop       0x00000000       0xfc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .literal.esp_fast_boot_disable
+                0x00000000        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .literal.esp_fast_boot_get_info
+                0x00000000       0x2c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .literal.esp_fast_boot_print_info
+                0x00000000       0x2c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .text          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .data          0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .bss           0x00000000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .text.esp_fast_boot_disable
+                0x00000000       0x11 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .rodata.esp_fast_boot_get_info.str1.4
+                0x00000000       0x24 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .text.esp_fast_boot_get_info
+                0x00000000       0x86 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .rodata.esp_fast_boot_print_info.str1.4
+                0x00000000       0x59 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .text.esp_fast_boot_print_info
+                0x00000000       0x4d F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .debug_frame   0x00000000       0x68 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .debug_info    0x00000000      0xbcf F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .debug_abbrev  0x00000000      0x251 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .debug_loc     0x00000000       0xb0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .debug_aranges
+                0x00000000       0x30 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .debug_ranges  0x00000000       0x20 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .debug_line    0x00000000      0x46c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .debug_str     0x00000000      0x708 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .comment       0x00000000       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .xt.lit        0x00000000       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .xt.prop       0x00000000       0xc0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .literal.phy_reg_default
+                0x00000000        0x0 P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libcore.a(phy.o)
+ .text          0x00000000        0x0 P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libcore.a(phy.o)
+ .data          0x00000000        0x0 P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libcore.a(phy.o)
+ .bss           0x00000000        0x0 P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libcore.a(phy.o)
+ .xt.lit        0x00000000        0x8 P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libcore.a(phy.o)
+ .xt.prop       0x00000000       0x48 P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libcore.a(phy.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+dport0_seg       0x3ff00000         0x00000010
+dram_seg         0x3ffe8000         0x00017c00
+iram_seg         0x40100000         0x00008000
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+START GROUP
+LOAD F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a
+LOAD P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libcore.a
+LOAD F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a
+LOAD F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a
+LOAD F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a
+LOAD F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a
+LOAD P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libgcc.a
+LOAD p:/xtensa-lx106-elf/bin/../lib/gcc/xtensa-lx106-elf/8.4.0/../../../../xtensa-lx106-elf/lib\libstdc++.a
+LOAD p:/xtensa-lx106-elf/bin/../lib/gcc/xtensa-lx106-elf/8.4.0\libgcov.a
+END GROUP
+
+.text           0x40100000     0x1f6d
+                0x40100000                _stext = .
+                0x40100000                _text_start = ABSOLUTE (.)
+                0x40100000                . = ALIGN (0x10)
+ *(.entry.text)
+ *(.init.literal)
+ *(.init)
+ *(.literal .text .literal.* .text.* .stub .gnu.warning .gnu.linkonce.literal.* .gnu.linkonce.t.*.literal .gnu.linkonce.t.*)
+ .literal.selected_boot_partition
+                0x40100000        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+                                  0x4 (size before relaxing)
+ .literal.select_image
+                0x40100000        0xc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+                                 0x1c (size before relaxing)
+ .literal.call_start_cpu
+                0x4010000c        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+                                 0x18 (size before relaxing)
+ .literal.bootloader_utility_start_image
+                0x40100010        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                  0x4 (size before relaxing)
+ .literal.log_invalid_app_partition
+                0x40100010       0x14 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                 0x20 (size before relaxing)
+ .literal.try_load_partition
+                0x40100024        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                 0x18 (size before relaxing)
+ .literal.bootloader_utility_load_partition_table
+                0x4010002c       0x58 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                 0x8c (size before relaxing)
+ .literal.bootloader_utility_get_selected_boot_partition
+                0x40100084       0x38 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                 0x88 (size before relaxing)
+ .literal.bootloader_utility_load_boot_image
+                0x401000bc       0x10 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                 0x4c (size before relaxing)
+ .literal.bootloader_utility_load_image
+                0x401000cc        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                  0x4 (size before relaxing)
+ .literal.print_flash_info
+                0x401000cc       0x5c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+                                 0x7c (size before relaxing)
+ .literal.update_flash_config
+                0x40100128        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+                                 0x14 (size before relaxing)
+ .literal.bootloader_main
+                0x40100130       0x14 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+                                 0x3c (size before relaxing)
+ .literal.bootloader_init
+                0x40100144        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+                                 0x10 (size before relaxing)
+ .literal.bootloader_flash_read_no_decrypt
+                0x4010014c        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .literal.bootloader_mmap
+                0x40100150       0x30 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                 0x3c (size before relaxing)
+ .literal.bootloader_munmap
+                0x40100180        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                  0x8 (size before relaxing)
+ .literal.bootloader_flash_read
+                0x40100180        0xc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                 0x20 (size before relaxing)
+ .literal.bootloader_read_flash_id
+                0x4010018c        0xc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                 0x10 (size before relaxing)
+ .literal.bootloader_execute_flash_command
+                0x40100198        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                 0x14 (size before relaxing)
+ .literal.bootloader_flash_read_sfdp
+                0x4010019c        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                 0x14 (size before relaxing)
+ .literal.bootloader_flash_xmc_startup
+                0x401001a0       0x14 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                 0x50 (size before relaxing)
+ .literal.should_map
+                0x401001b4        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .literal.should_load
+                0x401001bc        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                  0x4 (size before relaxing)
+ .literal.verify_image_header
+                0x401001bc       0x14 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                 0x20 (size before relaxing)
+ .literal.process_segment_data
+                0x401001d0        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                 0x14 (size before relaxing)
+ .literal.verify_checksum
+                0x401001d8        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                 0x1c (size before relaxing)
+ .literal.process_segment
+                0x401001e0       0x1c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                 0x48 (size before relaxing)
+ .literal.esp_image_load
+                0x401001fc       0x24 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                 0x64 (size before relaxing)
+ .literal.esp_partition_table_basic_verify
+                0x40100220       0x1c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+                                 0x34 (size before relaxing)
+ .literal.bootloader_common_ota_select_crc
+                0x4010023c        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+                                  0x4 (size before relaxing)
+ .literal.bootloader_common_ota_select_valid
+                0x4010023c        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+                                  0x4 (size before relaxing)
+ .literal.spi_user_cmd
+                0x4010023c        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0xc (size before relaxing)
+ .literal.special_flash_read_status
+                0x40100240        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0x4 (size before relaxing)
+ .literal.flash_gd25q32c_read_status
+                0x40100240        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0x4 (size before relaxing)
+ .literal.special_flash_write_status
+                0x40100240        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0x8 (size before relaxing)
+ .literal.spi_flash_enable_qio_bit6
+                0x40100240        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0x4 (size before relaxing)
+ .literal.flash_gd25q32c_write_status
+                0x40100240        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0x4 (size before relaxing)
+ .literal.flash_gd25q32c_enable_QIO_mode
+                0x40100240        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0xc (size before relaxing)
+ .literal.en25q16x_read_sfdp
+                0x40100240        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0x8 (size before relaxing)
+ .literal.spi_flash_get_id
+                0x40100244        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0xc (size before relaxing)
+ .literal.spi_flash_read_status
+                0x40100244        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0xc (size before relaxing)
+ .literal.spi_flash_issi_enable_QIO_mode
+                0x40100244        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0xc (size before relaxing)
+ .literal.special_flash_set_mode
+                0x40100244        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                  0x8 (size before relaxing)
+ .literal.en25q16x_write_volatile_status
+                0x40100244        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0x14 (size before relaxing)
+ .literal.user_spi_flash_dio_to_qio_pre_init
+                0x40100244       0x10 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0x38 (size before relaxing)
+ .literal.esp_spi_flash_init
+                0x40100254       0x20 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0x28 (size before relaxing)
+ .literal.Cache_Read_Disable_2
+                0x40100274        0xc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                                 0x10 (size before relaxing)
+ .literal.Cache_Read_Enable_2
+                0x40100280        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                                  0xc (size before relaxing)
+ .literal.spi_flash_get_id_raw
+                0x40100284       0x10 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                                 0x14 (size before relaxing)
+ .literal.spi_flash_read_status_raw
+                0x40100294        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                                  0xc (size before relaxing)
+ .literal.spi_flash_enable_qmode_raw
+                0x40100298        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                                 0x10 (size before relaxing)
+ .literal.spi_user_cmd_raw
+                0x4010029c       0x64 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                                 0x84 (size before relaxing)
+ .literal.spi_flash_switch_to_qio_raw
+                0x40100300        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                                  0xc (size before relaxing)
+ .literal.uart_putc
+                0x40100308        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .literal.ets_putc
+                0x40100310        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+                                  0x8 (size before relaxing)
+ .literal.ets_vprintf
+                0x40100310        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .literal.crc32_le
+                0x40100318        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .iram1.0.literal
+                0x4010031c        0x8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .iram1.1.literal
+                0x40100324       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+                                 0x30 (size before relaxing)
+ .iram1.0.literal
+                0x4010033c        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+                                  0x8 (size before relaxing)
+ .text.selected_boot_partition
+                0x4010033c        0xf F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+                                 0x13 (size before relaxing)
+ *fill*         0x4010034b        0x1 
+ .text.select_image
+                0x4010034c       0x68 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+                                 0x70 (size before relaxing)
+ .text.call_start_cpu
+                0x401003b4       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+                                 0x3e (size before relaxing)
+                0x401003b4                call_start_cpu
+ *fill*         0x401003e6        0x2 
+ .text.bootloader_utility_start_image
+                0x401003e8       0x20 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                 0x24 (size before relaxing)
+ .text.log_invalid_app_partition
+                0x40100408       0x4b F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                 0x53 (size before relaxing)
+ *fill*         0x40100453        0x1 
+ .text.try_load_partition
+                0x40100454       0x48 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                 0x50 (size before relaxing)
+ .text.bootloader_utility_load_partition_table
+                0x4010049c      0x1a4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                0x1c4 (size before relaxing)
+                0x4010049c                bootloader_utility_load_partition_table
+ .text.bootloader_utility_get_selected_boot_partition
+                0x40100640      0x18f F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                0x1af (size before relaxing)
+                0x40100640                bootloader_utility_get_selected_boot_partition
+ *fill*         0x401007cf        0x1 
+ .text.bootloader_utility_load_boot_image
+                0x401007d0       0xf6 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                0x11e (size before relaxing)
+                0x401007d0                bootloader_utility_load_boot_image
+ *fill*         0x401008c6        0x2 
+ .text.bootloader_utility_load_image
+                0x401008c8       0x19 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                0x401008c8                bootloader_utility_load_image
+ *fill*         0x401008e1        0x3 
+ .text.print_flash_info
+                0x401008e4      0x115 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+                                0x129 (size before relaxing)
+ *fill*         0x401009f9        0x3 
+ .text.update_flash_config
+                0x401009fc       0x2b F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+                                 0x2f (size before relaxing)
+ *fill*         0x40100a27        0x1 
+ .text.bootloader_main
+                0x40100a28       0x81 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+                                 0x95 (size before relaxing)
+ *fill*         0x40100aa9        0x3 
+ .text.bootloader_init
+                0x40100aac       0x25 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+                                 0x29 (size before relaxing)
+                0x40100aac                bootloader_init
+ *fill*         0x40100ad1        0x3 
+ .text.bootloader_flash_read_no_decrypt
+                0x40100ad4       0x15 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ *fill*         0x40100ae9        0x3 
+ .text.bootloader_mmap
+                0x40100aec       0xa6 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                0x40100aec                bootloader_mmap
+ *fill*         0x40100b92        0x2 
+ .text.bootloader_munmap
+                0x40100b94       0x23 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                0x40100b94                bootloader_munmap
+ *fill*         0x40100bb7        0x1 
+ .text.bootloader_flash_read
+                0x40100bb8       0x62 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                 0x65 (size before relaxing)
+                0x40100bb8                bootloader_flash_read
+ *fill*         0x40100c1a        0x2 
+ .text.bootloader_read_flash_id
+                0x40100c1c       0x2d F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                0x40100c1c                bootloader_read_flash_id
+ *fill*         0x40100c49        0x3 
+ .text.bootloader_execute_flash_command
+                0x40100c4c       0x4d F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                 0x51 (size before relaxing)
+                0x40100c4c                bootloader_execute_flash_command
+ *fill*         0x40100c99        0x3 
+ .text.bootloader_flash_read_sfdp
+                0x40100c9c       0x51 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                 0x55 (size before relaxing)
+                0x40100c9c                bootloader_flash_read_sfdp
+ *fill*         0x40100ced        0x3 
+ .text.bootloader_flash_xmc_startup
+                0x40100cf0       0xb8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                 0xdc (size before relaxing)
+                0x40100cf0                bootloader_flash_xmc_startup
+ .text.should_map
+                0x40100da8       0x15 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ *fill*         0x40100dbd        0x3 
+ .text.should_load
+                0x40100dc0       0x19 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                 0x1d (size before relaxing)
+ *fill*         0x40100dd9        0x3 
+ .text.verify_image_header
+                0x40100ddc       0x7d F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                 0x85 (size before relaxing)
+ *fill*         0x40100e59        0x3 
+ .text.process_segment_data
+                0x40100e5c       0x89 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                 0x91 (size before relaxing)
+ *fill*         0x40100ee5        0x3 
+ .text.verify_checksum
+                0x40100ee8       0x9c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                 0xa0 (size before relaxing)
+ .text.process_segment
+                0x40100f84      0x111 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                0x125 (size before relaxing)
+ *fill*         0x40101095        0x3 
+ .text.esp_image_load
+                0x40101098      0x1d1 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                0x1f5 (size before relaxing)
+                0x40101098                esp_image_load
+ *fill*         0x40101269        0x3 
+ .text.esp_partition_table_basic_verify
+                0x4010126c       0xeb F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+                0x4010126c                esp_partition_table_basic_verify
+ *fill*         0x40101357        0x1 
+ .text.bootloader_common_ota_select_crc
+                0x40101358       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+                0x40101358                bootloader_common_ota_select_crc
+ .text.bootloader_common_ota_select_valid
+                0x40101370       0x2c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+                0x40101370                bootloader_common_ota_select_valid
+ .text.spi_user_cmd
+                0x4010139c       0x4d F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                0x4010139c                spi_user_cmd
+ *fill*         0x401013e9        0x3 
+ .text.special_flash_read_status
+                0x401013ec       0x39 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0x3d (size before relaxing)
+                0x401013ec                special_flash_read_status
+ *fill*         0x40101425        0x3 
+ .text.flash_gd25q32c_read_status
+                0x40101428       0x33 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ *fill*         0x4010145b        0x1 
+ .text.special_flash_write_status
+                0x4010145c       0x5c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0x60 (size before relaxing)
+                0x4010145c                special_flash_write_status
+ .text.spi_flash_enable_qio_bit6
+                0x401014b8       0x17 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0x1b (size before relaxing)
+ *fill*         0x401014cf        0x1 
+ .text.flash_gd25q32c_write_status
+                0x401014d0       0x30 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .text.flash_gd25q32c_enable_QIO_mode
+                0x40101500       0x3e F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0x46 (size before relaxing)
+ *fill*         0x4010153e        0x2 
+ .text.en25q16x_read_sfdp
+                0x40101540       0x43 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                0x40101540                en25q16x_read_sfdp
+ *fill*         0x40101583        0x1 
+ .text.spi_flash_get_id
+                0x40101584       0x26 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                0x40101584                spi_flash_get_id
+ *fill*         0x401015aa        0x2 
+ .text.spi_flash_read_status
+                0x401015ac       0x28 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                0x401015ac                spi_flash_read_status
+ .text.spi_flash_issi_enable_QIO_mode
+                0x401015d4       0x43 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0x4b (size before relaxing)
+ *fill*         0x40101617        0x1 
+ .text.special_flash_set_mode
+                0x40101618       0x41 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0x45 (size before relaxing)
+                0x40101618                special_flash_set_mode
+ *fill*         0x40101659        0x3 
+ .text.en25q16x_write_volatile_status
+                0x4010165c       0x4f F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0x5b (size before relaxing)
+                0x4010165c                en25q16x_write_volatile_status
+ *fill*         0x401016ab        0x1 
+ .text.user_spi_flash_dio_to_qio_pre_init
+                0x401016ac       0xa3 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0xb2 (size before relaxing)
+                0x401016ac                user_spi_flash_dio_to_qio_pre_init
+ *fill*         0x4010174f        0x1 
+ .text.esp_spi_flash_init
+                0x40101750       0xb9 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                 0xc1 (size before relaxing)
+                0x40101750                esp_spi_flash_init
+ *fill*         0x40101809        0x3 
+ .text.Cache_Read_Disable_2
+                0x4010180c       0x34 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                0x4010180c                Cache_Read_Disable_2
+ .text.Cache_Read_Enable_2
+                0x40101840       0x28 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                0x40101840                Cache_Read_Enable_2
+                0x40101840                Cache_Read_Enable_New
+ .text.spi_flash_get_id_raw
+                0x40101868       0x41 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                0x40101868                spi_flash_get_id_raw
+ *fill*         0x401018a9        0x3 
+ .text.spi_flash_read_status_raw
+                0x401018ac       0x2f F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                                 0x33 (size before relaxing)
+                0x401018ac                spi_flash_read_status_raw
+ *fill*         0x401018db        0x1 
+ .text.spi_flash_enable_qmode_raw
+                0x401018dc       0x33 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                                 0x37 (size before relaxing)
+                0x401018dc                spi_flash_enable_qmode_raw
+ *fill*         0x4010190f        0x1 
+ .text.spi_user_cmd_raw
+                0x40101910      0x3d1 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                0x40101910                spi_user_cmd_raw
+ *fill*         0x40101ce1        0x3 
+ .text.spi_flash_switch_to_qio_raw
+                0x40101ce4       0x25 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                0x40101ce4                spi_flash_switch_to_qio_raw
+ *fill*         0x40101d09        0x3 
+ .text.uart_putc
+                0x40101d0c       0x1b F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ *fill*         0x40101d27        0x1 
+ .text.ets_putc
+                0x40101d28       0x27 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+                0x40101d28                ets_putc
+ *fill*         0x40101d4f        0x1 
+ .text.ets_vprintf
+                0x40101d50       0x1f F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+                0x40101d50                ets_vprintf
+ *fill*         0x40101d6f        0x1 
+ .text.crc32_le
+                0x40101d70       0x31 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+                0x40101d70                crc32_le
+ *fill*         0x40101da1        0x3 
+ .text.phy_reg_default
+                0x40101da4       0x36 P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libcore.a(phy.o)
+                0x40101db4                phy_reg_default
+ *fill*         0x40101dda        0x0 
+ *fill*         0x40101dda        0x2 
+ .text.index_to_partition
+                0x40101ddc       0x4d F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ *fill*         0x40101e29        0x0 
+ *fill*         0x40101e29        0x0 
+ *fill*         0x40101e29        0x0 
+ *fill*         0x40101e29        0x0 
+ *fill*         0x40101e29        0x0 
+ *fill*         0x40101e29        0x0 
+ *fill*         0x40101e29        0x0 
+ *fill*         0x40101e29        0x0 
+ *fill*         0x40101e29        0x3 
+ .text.is_xmc_chip_strict
+                0x40101e2c       0x58 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ *fill*         0x40101e84        0x0 
+ *fill*         0x40101e84        0x0 
+ *fill*         0x40101e84        0x0 
+ *fill*         0x40101e84        0x0 
+ *fill*         0x40101e84        0x0 
+ *fill*         0x40101e84        0x0 
+ *fill*         0x40101e84        0x0 
+ .text.verify_segment_header
+                0x40101e84        0x4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *fill*         0x40101e88        0x0 
+ *(.iram1 .iram1.*)
+ .iram1.0       0x40101e88       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+                0x40101e88                esp_log_early_timestamp
+ .iram1.1       0x40101ea0       0x96 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+                                 0xa1 (size before relaxing)
+                0x40101ea0                esp_early_log_write
+ *fill*         0x40101f36        0x2 
+ .iram1.0       0x40101f38       0x35 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+                                 0x39 (size before relaxing)
+                0x40101f38                ets_printf
+ *fill*         0x40101f6d        0x0 
+ *fill*         0x40101f6d        0x0 
+ *(.fini.literal)
+ *(.fini)
+ *(.gnu.version)
+                0x40101f6d                _text_end = ABSOLUTE (.)
+                0x40101f6d                _etext = .
+
+.bss            0x3ffe8000      0x408
+                0x3ffe8000                . = ALIGN (0x8)
+                0x3ffe8000                _bss_start = ABSOLUTE (.)
+ *(.dynsbss)
+ *(.sbss)
+ *(.sbss.*)
+ *(.gnu.linkonce.sb.*)
+ *(.scommon)
+ *(.sbss2)
+ *(.sbss2.*)
+ *(.gnu.linkonce.sb2.*)
+ *(.dynbss)
+ *(.bss)
+ *(.bss.*)
+ .bss.mapped    0x3ffe8000        0x1 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ *fill*         0x3ffe8001        0x3 
+ .bss.pbuf$3628
+                0x3ffe8004      0x400 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .bss.FlashIsOnGoing
+                0x3ffe8404        0x1 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                0x3ffe8404                FlashIsOnGoing
+ *(.gnu.linkonce.b.*)
+ *(COMMON)
+                0x3ffe8408                . = ALIGN (0x8)
+ *fill*         0x3ffe8405        0x3 
+                0x3ffe8408                _bss_end = ABSOLUTE (.)
+
+.data           0x3ffe8408       0x18
+                0x3ffe8408                _data_start = ABSOLUTE (.)
+ *(.data)
+ *(.data.*)
+ .data.g_rom_flashchip
+                0x3ffe8408       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                0x3ffe8408                g_rom_flashchip
+ *(.gnu.linkonce.d.*)
+ *(.data1)
+ *(.sdata)
+ *(.sdata.*)
+ *(.gnu.linkonce.s.*)
+ *(.sdata2)
+ *(.sdata2.*)
+ *(.gnu.linkonce.s2.*)
+ *(.jcr)
+                0x3ffe8420                _data_end = ABSOLUTE (.)
+
+.rodata         0x3ffe8420     0x10f8
+                0x3ffe8420                _rodata_start = ABSOLUTE (.)
+ *(.rodata)
+ *(.rodata.*)
+ .rodata.select_image.str1.4
+                0x3ffe8420       0x21 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ *fill*         0x3ffe8441        0x3 
+ .rodata.call_start_cpu.str1.4
+                0x3ffe8444       0x14 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .rodata.log_invalid_app_partition.str1.4
+                0x3ffe8458       0x68 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                 0x70 (size before relaxing)
+ .rodata.try_load_partition.str1.4
+                0x3ffe84c0       0x51 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ *fill*         0x3ffe8511        0x3 
+ .rodata.bootloader_utility_load_partition_table.str1.4
+                0x3ffe8514      0x18f F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ *fill*         0x3ffe86a3        0x1 
+ .rodata.bootloader_utility_get_selected_boot_partition.str1.4
+                0x3ffe86a4      0x1c3 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ *fill*         0x3ffe8867        0x1 
+ .rodata.bootloader_utility_load_boot_image.str1.4
+                0x3ffe8868       0xca F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ *fill*         0x3ffe8932        0x2 
+ .rodata.print_flash_info.str1.4
+                0x3ffe8934       0xd4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+                                 0xe0 (size before relaxing)
+ .rodata.print_flash_info
+                0x3ffe8a08       0x28 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .rodata.update_flash_config.str1.4
+                0x3ffe8a30       0x2e F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ *fill*         0x3ffe8a5e        0x2 
+ .rodata.bootloader_main.str1.4
+                0x3ffe8a60       0x9e F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ *fill*         0x3ffe8afe        0x2 
+ .rodata.bootloader_mmap.str1.4
+                0x3ffe8b00       0x57 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ *fill*         0x3ffe8b57        0x1 
+ .rodata.bootloader_flash_read.str1.4
+                0x3ffe8b58       0x9f F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ *fill*         0x3ffe8bf7        0x1 
+ .rodata.bootloader_execute_flash_command.str1.4
+                0x3ffe8bf8       0x19 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ *fill*         0x3ffe8c11        0x3 
+ .rodata.bootloader_flash_read_sfdp.str1.4
+                0x3ffe8c14       0x14 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .rodata.bootloader_flash_xmc_startup.str1.4
+                0x3ffe8c28       0x8b F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ *fill*         0x3ffe8cb3        0x1 
+ .rodata.verify_image_header.str1.4
+                0x3ffe8cb4       0x82 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ *fill*         0x3ffe8d36        0x2 
+ .rodata.process_segment_data.str1.4
+                0x3ffe8d38       0x27 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ *fill*         0x3ffe8d5f        0x1 
+ .rodata.verify_checksum.str1.4
+                0x3ffe8d60       0x57 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ *fill*         0x3ffe8db7        0x1 
+ .rodata.process_segment.str1.4
+                0x3ffe8db8       0xbb F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                 0xbf (size before relaxing)
+ *fill*         0x3ffe8e73        0x1 
+ .rodata.esp_image_load.str1.4
+                0x3ffe8e74      0x157 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ *fill*         0x3ffe8fcb        0x1 
+ .rodata.esp_partition_table_basic_verify.str1.4
+                0x3ffe8fcc       0xdc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .rodata.esp_spi_flash_init.str1.4
+                0x3ffe90a8       0x29 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ *fill*         0x3ffe90d1        0x3 
+ .rodata.str1.4
+                0x3ffe90d4       0x24 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+                                 0x22 (size before relaxing)
+ .rodata.s_log_prefix
+                0x3ffe90f8        0x6 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ *fill*         0x3ffe90fe        0x2 
+ .rodata.s_log_color
+                0x3ffe9100       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .rodata.crc32_le_table
+                0x3ffe9118      0x400 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ *(.gnu.linkonce.r.*)
+ *(.rodata1)
+                0x3ffe9518                __XT_EXCEPTION_TABLE_ = ABSOLUTE (.)
+ *(.xt_except_table)
+ *(.gcc_except_table)
+ *(.gnu.linkonce.e.*)
+ *(.gnu.version_r)
+ *(.eh_frame)
+                0x3ffe9518                . = ((. + 0x3) & 0xfffffffc)
+                0x3ffe9518                __init_array_start = ABSOLUTE (.)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+                0x3ffe9518                __init_array_end = ABSOLUTE (.)
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+                0x3ffe9518                __XT_EXCEPTION_DESCS_ = ABSOLUTE (.)
+ *(.xt_except_desc)
+ *(.gnu.linkonce.h.*)
+                0x3ffe9518                __XT_EXCEPTION_DESCS_END__ = ABSOLUTE (.)
+ *(.xt_except_desc_end)
+ *(.dynamic)
+ *(.gnu.version_d)
+                0x3ffe9518                _rodata_end = ABSOLUTE (.)
+                0x3ffe9518                _lit4_start = ABSOLUTE (.)
+ *(*.lit4)
+ *(.lit4.*)
+ *(.gnu.linkonce.lit4.*)
+                0x3ffe9518                _lit4_end = ABSOLUTE (.)
+                0x3ffe9518                . = ALIGN (0x4)
+                0x3ffe9518                _heap_start = ABSOLUTE (.)
+                0x60001100                PROVIDE (rtc_sys_info = 0x60001100)
+                0x400040c0                PROVIDE (SPI_sector_erase = 0x400040c0)
+                0x40004174                PROVIDE (SPI_page_program = 0x40004174)
+                0x400042ac                PROVIDE (SPI_read_data = 0x400042ac)
+                0x400043c8                PROVIDE (SPI_read_status = 0x400043c8)
+                0x40004400                PROVIDE (SPI_write_status = 0x40004400)
+                0x4000443c                PROVIDE (SPI_write_enable = 0x4000443c)
+                0x4000448c                PROVIDE (Wait_SPI_Idle = 0x4000448c)
+                0x400044c0                PROVIDE (Enable_QMode = 0x400044c0)
+                [!provide]                PROVIDE (Disable_QMode = 0x40004508)
+                0x40004678                PROVIDE (Cache_Read_Enable = 0x40004678)
+                0x400047f0                PROVIDE (Cache_Read_Disable = 0x400047f0)
+                [!provide]                PROVIDE (lldesc_build_chain = 0x40004f40)
+                [!provide]                PROVIDE (lldesc_num2link = 0x40005050)
+                [!provide]                PROVIDE (lldesc_set_owner = 0x4000507c)
+                0x4000c538                __adddf3 = 0x4000c538
+                0x4000c180                __addsf3 = 0x4000c180
+                0x4000cb94                __divdf3 = 0x4000cb94
+                0x4000ce60                __divdi3 = 0x4000ce60
+                0x4000dc88                __divsi3 = 0x4000dc88
+                0x4000cdfc                __extendsfdf2 = 0x4000cdfc
+                0x4000ccb8                __fixdfsi = 0x4000ccb8
+                0x4000cd00                __fixunsdfsi = 0x4000cd00
+                0x4000c4c4                __fixunssfsi = 0x4000c4c4
+                0x4000e2f0                __floatsidf = 0x4000e2f0
+                0x4000e2ac                __floatsisf = 0x4000e2ac
+                0x4000e2e8                __floatunsidf = 0x4000e2e8
+                0x4000e2a4                __floatunsisf = 0x4000e2a4
+                0x4000c8f0                __muldf3 = 0x4000c8f0
+                0x40000650                __muldi3 = 0x40000650
+                0x4000c3dc                __mulsf3 = 0x4000c3dc
+                0x4000c688                __subdf3 = 0x4000c688
+                0x4000c268                __subsf3 = 0x4000c268
+                0x4000cd5c                __truncdfsf2 = 0x4000cd5c
+                0x4000d310                __udivdi3 = 0x4000d310
+                0x4000e21c                __udivsi3 = 0x4000e21c
+                0x4000d770                __umoddi3 = 0x4000d770
+                0x4000e268                __umodsi3 = 0x4000e268
+                0x4000dcf0                __umulsidi3 = 0x4000dcf0
+                0x4000de84                bzero = 0x4000de84
+                0x4000dea8                memcmp = 0x4000dea8
+                0x4000df48                memcpy = 0x4000df48
+                0x4000e04c                memmove = 0x4000e04c
+                0x4000e190                memset = 0x4000e190
+                0x4000bdc8                strcmp = 0x4000bdc8
+                0x4000bec8                strcpy = 0x4000bec8
+                0x4000bf4c                strlen = 0x4000bf4c
+                0x4000bfa8                strncmp = 0x4000bfa8
+                0x4000c0a0                strncpy = 0x4000c0a0
+                0x4000e1e0                strstr = 0x4000e1e0
+                0x40004cf0                PROVIDE (gpio_input_get = 0x40004cf0)
+                [!provide]                PROVIDE (gpio_pin_wakeup_disable = 0x40004ed4)
+                [!provide]                PROVIDE (gpio_pin_wakeup_enable = 0x40004e90)
+                0x40001f00                PROVIDE (ets_io_vprintf = 0x40001f00)
+                [!provide]                PROVIDE (uart_rx_one_char = 0x40003b8c)
+                [!provide]                PROVIDE (rom_i2c_readReg = 0x40007268)
+                [!provide]                PROVIDE (rom_i2c_readReg_Mask = 0x4000729c)
+                [!provide]                PROVIDE (rom_i2c_writeReg = 0x400072d8)
+                [!provide]                PROVIDE (rom_i2c_writeReg_Mask = 0x4000730c)
+                [!provide]                PROVIDE (rom_software_reboot = 0x40000080)
+                [!provide]                PROVIDE (ets_memcpy = 0x400018b4)
+                0x40004b1c                PROVIDE (SPIRead = 0x40004b1c)
+                0x40004a4c                PROVIDE (SPIWrite = 0x40004a4c)
+                0x40004a00                PROVIDE (SPIEraseSector = 0x40004a00)
+                [!provide]                PROVIDE (gpio_input_get = 0x40004cf0)
+                [!provide]                PROVIDE (xthal_get_ccount = 0x4000dd38)
+                [!provide]                PROVIDE (uart_div_modify = 0x400039d8)
+                [!provide]                PROVIDE (ets_io_vprintf = 0x40001f00)
+                0x40002ecc                PROVIDE (ets_rom_delay_us = 0x40002ecc)
+OUTPUT(F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader.elf elf32-xtensa-le)
+
+.debug_frame    0x00000000      0xb7c
+ .debug_frame   0x00000000       0x74 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .debug_frame   0x00000074      0x144 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .debug_frame   0x000001b8       0x98 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .debug_frame   0x00000250      0x170 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .debug_frame   0x000003c0      0x13c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .debug_frame   0x000004fc       0x38 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .debug_frame   0x00000534       0x74 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .debug_frame   0x000005a8      0x350 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .debug_frame   0x000008f8      0x16c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .debug_frame   0x00000a64       0x58 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .debug_frame   0x00000abc       0x80 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .debug_frame   0x00000b3c       0x40 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+
+.debug_info     0x00000000     0xd12f
+ .debug_info    0x00000000      0xe13 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .debug_info    0x00000e13     0x1908 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .debug_info    0x0000271b      0xf17 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .debug_info    0x00003632     0x1406 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .debug_info    0x00004a38     0x1799 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .debug_info    0x000061d1      0xcd0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .debug_info    0x00006ea1     0x1357 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .debug_info    0x000081f8     0x1e3a F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .debug_info    0x0000a032     0x1096 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .debug_info    0x0000b0c8     0x12ba F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .debug_info    0x0000c382      0xb66 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .debug_info    0x0000cee8      0x247 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+
+.debug_abbrev   0x00000000     0x223a
+ .debug_abbrev  0x00000000      0x307 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .debug_abbrev  0x00000307      0x34e F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .debug_abbrev  0x00000655      0x2f2 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .debug_abbrev  0x00000947      0x308 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .debug_abbrev  0x00000c4f      0x316 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .debug_abbrev  0x00000f65      0x271 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .debug_abbrev  0x000011d6      0x2d4 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .debug_abbrev  0x000014aa      0x45b F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .debug_abbrev  0x00001905      0x29f F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .debug_abbrev  0x00001ba4      0x315 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .debug_abbrev  0x00001eb9      0x2a2 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .debug_abbrev  0x0000215b       0xdf F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+
+.debug_loc      0x00000000     0x3bbf
+ .debug_loc     0x00000000       0xc5 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .debug_loc     0x000000c5      0x80a F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .debug_loc     0x000008cf       0xde F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .debug_loc     0x000009ad      0x842 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .debug_loc     0x000011ef      0xb0d F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .debug_loc     0x00001cfc      0x11a F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .debug_loc     0x00001e16      0x18f F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .debug_loc     0x00001fa5     0x11ff F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .debug_loc     0x000031a4      0x663 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .debug_loc     0x00003807      0x119 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .debug_loc     0x00003920       0xe9 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .debug_loc     0x00003a09      0x1b6 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+
+.debug_aranges  0x00000000      0x3d0
+ .debug_aranges
+                0x00000000       0x30 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .debug_aranges
+                0x00000030       0x60 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .debug_aranges
+                0x00000090       0x38 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .debug_aranges
+                0x000000c8       0x70 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .debug_aranges
+                0x00000138       0x60 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .debug_aranges
+                0x00000198       0x20 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .debug_aranges
+                0x000001b8       0x30 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .debug_aranges
+                0x000001e8       0xe8 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .debug_aranges
+                0x000002d0       0x70 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .debug_aranges
+                0x00000340       0x28 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .debug_aranges
+                0x00000368       0x38 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .debug_aranges
+                0x000003a0       0x30 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+
+.debug_ranges   0x00000000      0x340
+ .debug_ranges  0x00000000       0x20 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .debug_ranges  0x00000020       0x50 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .debug_ranges  0x00000070       0x28 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .debug_ranges  0x00000098       0x60 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .debug_ranges  0x000000f8       0x68 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .debug_ranges  0x00000160       0x10 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .debug_ranges  0x00000170       0x20 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .debug_ranges  0x00000190       0xf0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .debug_ranges  0x00000280       0x60 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .debug_ranges  0x000002e0       0x18 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .debug_ranges  0x000002f8       0x28 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .debug_ranges  0x00000320       0x20 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+
+.debug_line     0x00000000     0x816c
+ .debug_line    0x00000000      0x523 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .debug_line    0x00000523     0x13c1 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .debug_line    0x000018e4      0x799 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .debug_line    0x0000207d      0xecc F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .debug_line    0x00002f49     0x117d F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .debug_line    0x000040c6      0x575 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .debug_line    0x0000463b      0x5f2 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .debug_line    0x00004c2d     0x1ee3 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .debug_line    0x00006b10      0xb2a F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .debug_line    0x0000763a      0x487 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .debug_line    0x00007ac1      0x378 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .debug_line    0x00007e39      0x333 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+
+.debug_str      0x00000000     0x2638
+ .debug_str     0x00000000      0x84b F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+                                0x920 (size before relaxing)
+ .debug_str     0x0000084b      0x329 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+                                0xbaf (size before relaxing)
+ .debug_str     0x00000b74      0x32c F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+                                0xa3e (size before relaxing)
+ .debug_str     0x00000ea0      0x28f F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+                                0x9d3 (size before relaxing)
+ .debug_str     0x0000112f      0x1c3 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+                                0xb9d (size before relaxing)
+ .debug_str     0x000012f2       0x7b F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+                                0x7cb (size before relaxing)
+ .debug_str     0x0000136d      0xab3 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+                               0x10f1 (size before relaxing)
+ .debug_str     0x00001e20      0x4ae F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+                                0xd35 (size before relaxing)
+ .debug_str     0x000022ce      0x123 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+                                0x8ca (size before relaxing)
+ .debug_str     0x000023f1      0x121 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+                               0x1046 (size before relaxing)
+ .debug_str     0x00002512       0xac F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+                                0x6ab (size before relaxing)
+ .debug_str     0x000025be       0x7a F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+                                0x1d3 (size before relaxing)
+
+.comment        0x00000000       0x6b
+ .comment       0x00000000       0x31 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+                                 0x32 (size before relaxing)
+ .comment       0x00000031       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .comment       0x00000031       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .comment       0x00000031       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .comment       0x00000031       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .comment       0x00000031       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .comment       0x00000031       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .comment       0x00000031       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .comment       0x00000031       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .comment       0x00000031       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .comment       0x00000031       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .comment       0x00000031       0x32 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .comment       0x00000031       0x3a P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libcore.a(phy.o)
+                                 0x3b (size before relaxing)
+
+.xtensa.info    0x00000000       0x38
+ .xtensa.info   0x00000000       0x38 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/main\libmain.a(bootloader_start.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_utility.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_init.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_flash.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(esp_image_format.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(flash_partitions.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/bootloader_support\libbootloader_support.a(bootloader_common.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/spi_flash\libspi_flash.a(spi_flash_raw.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/log\liblog.a(log.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(ets_printf.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(crc.o)
+ .xtensa.info   0x00000038        0x0 F:/tuse2024/firmware/scratch/espinfo/build/bootloader/esp8266\libesp8266.a(esp_fast_boot.o)
+ .xtensa.info   0x00000038        0x0 P:/esp8266/ESP8266_RTOS_SDK/components/esp8266/lib\libcore.a(phy.o)

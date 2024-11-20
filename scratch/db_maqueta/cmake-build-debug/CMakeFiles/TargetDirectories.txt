@@ -1,0 +1,3 @@
+C:/DESARROLLO/firmware/scratch/db_maqueta/cmake-build-debug/CMakeFiles/db_maqueta.dir
+C:/DESARROLLO/firmware/scratch/db_maqueta/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/DESARROLLO/firmware/scratch/db_maqueta/cmake-build-debug/CMakeFiles/rebuild_cache.dir
