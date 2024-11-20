@@ -2,9 +2,10 @@
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>
 #include <vector>  // Correcto para usar std::vector
+#include <algorithm>
 //  #include <sha256.h> // Incluir la clase sha256.h que has proporcionado
 #include <string>
-#include "wifi_selector.h"
+//#include "wifi_selector.h"
 #include "services.h"
 
 using namespace std;
@@ -48,7 +49,11 @@ string generarToken() {
 //   return hashStr;
 // }
 
-// Verificar usuario con hash de contraseña
+/*
+*/
+
+//   Verificar usuario con hash de contraseña
+//
 bool verificarUsuario(const String& User, const String& Pass, UserSession& usuario) {
   for (size_t i = 0; i < UsuariosLogueados.size(); i++) {
     if (UsuariosLogueados[i].User == User.c_str()) {
@@ -64,24 +69,42 @@ bool verificarUsuario(const String& User, const String& Pass, UserSession& usuar
 
 // Función para manejar la solicitud de login
 void handleLogin() {
-  if (server.hasArg("user") && server.hasArg("pass")) {
+  UserSession usuario;
+
+  if (server.hasArg("user") && server.hasArg("pass")) 
+  {
     String User = server.arg("user");
     String Pass = server.arg("pass");
 
-    UserSession usuario;
+    SecurityServices seguridad;
+    
+    usuario = seguridad.login_user(User, Pass);
 
-    if (verificarUsuario(User, Pass, usuario)) {
-      // Generamos un nuevo token para este usuario y lo añadimos
-      usuario.Token = generarToken();
-      // Si es válido, lo agregamos al vector de usuarios logueados
-      UsuariosLogueados.push_back(usuario);
-      lastLoginTime = millis(); // Marcar el tiempo del último login
-      server.send(200, "text/plain", "Login exitoso. Token: " /*+ usuario.Token.c_str()*/);
-    } else {
+    if (usuario.StatusCode == 0)
+    {
+      //  OK, usuario validado -> agregar al vector
+      server.send(200, "text/plain", "Login exitoso. Token: " + usuario.Token);
+    }
+    else
+    {
+      //  401 unauthorized
       // Si no es válido, mostramos un mensaje de error
       server.send(401, "text/plain", "Error: Usuario o contraseña incorrectos.");
     }
-  } else {
+
+  //   if (verificarUsuario(User, Pass, usuario)) {
+  //     // Generamos un nuevo token para este usuario y lo añadimos
+  //     usuario.Token = generarToken();
+  //     // Si es válido, lo agregamos al vector de usuarios logueados
+  //     UsuariosLogueados.push_back(usuario);
+  //     lastLoginTime = millis(); // Marcar el tiempo del último login
+  //     server.send(200, "text/plain", "Login exitoso. Token: " /*+ usuario.Token.c_str()*/);
+  //   } else {
+  //   }
+  } 
+  else {
+    //  bad request: faltan datos en el mensaje
+    //
     server.send(400, "text/plain", "Error: Parámetros de usuario y contraseña faltantes.");
   }
 }
@@ -154,6 +177,7 @@ void handleDeleteUser() {
       if (UsuariosLogueados[i].User == userToDelete.c_str()) {
         // Eliminar el usuario encontrado
         UsuariosLogueados.erase(UsuariosLogueados.begin() + i);
+
         server.send(200, "text/plain", "Usuario eliminado exitosamente.");
         return;
       }
