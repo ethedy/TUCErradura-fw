@@ -1,14 +1,39 @@
+/*
+  CERRAJERO.INO
+
+  Autor: Enrique Thedy
+  Fecha: NOV-DIC/2024
+  Version: 1
+
+  Maqueta de uso de base de datos para el sistema de cerradura electronica de TUSA
+
+*/
+
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>
-#include <vector>  // Correcto para usar std::vector
-#include <algorithm>
 //  #include <sha256.h> // Incluir la clase sha256.h que has proporcionado
-#include <string>
-//#include "wifi_selector.h"
-#include "services.h"
+//  #include <WString.h>
+//  #include "wifi_selector.h"
+//  #include <esp_system.h>
+#include <pins_arduino.h>
+#include <ets_sys.h>
+#include <gpio.h>
+#include <Schedule.h>
+#include <HardwareSerial.h>
 
-using namespace std;
+#include "Utiles.h"
+#include "Servicios.h"
+#include "Entidades.h"
+
+#include <vector>  
+#include <algorithm>
+#include <string>
+#include <regex>
+
+
+using namespace Servicios;
+using namespace Entidades;
 
 #define SHA256_SIZE 32 // El tamaño del hash SHA256 es 32 bytes
 
@@ -16,17 +41,22 @@ ESP8266WebServer server(80);
 
 unsigned long sessionLimit = 900000;    // 15 minutos de tiempo para session activa
 unsigned long lastLoginTime = 0;        // Para gestionar la expiración de la sesión
+
 const int Puerta = 2;                   // Pin del LED
 
-std::vector<UserSession> UsuariosLogueados;  // Vector para almacenar los usuarios logueados
+const uint8_t  Watchdog_Pin = 2;
+const uint32_t Watchdog_Time =  1 * 1000000;
+
+//ETSEvent cola[10];
+
+std::vector<Servicios::UserSession> UsuariosLogueados;  // Vector para almacenar los usuarios logueados
 
 // Función para generar un token único
-string generarToken() {
-  string token;
-//  string token = string(millis(), HEX) + string(random(0, 255), HEX);  // Usamos el tiempo y un valor aleatorio como token
-//  return token;
+String generarToken() {
+  String token = String(millis(), HEX) + String(random(0, 255), HEX);  // Usamos el tiempo y un valor aleatorio como token
   return token;
 }
+
 
 // Función para generar el hash SHA256 de la contraseña utilizando la clase `SHA256` proporcionada
 // String generarHash(const String& pass) {
@@ -67,44 +97,65 @@ bool verificarUsuario(const String& User, const String& Pass, UserSession& usuar
   return false;
 }
 
+bool Validarsesion(String Token, UserSession& u){
+
+  //TODO: realizar un chequeo que la Session no expiro
+
+  bool userLoggedIn = false;
+
+  for (size_t i = 0; i < UsuariosLogueados.size(); i++) 
+  {
+    if (UsuariosLogueados[i].Token == Token) 
+    {
+      userLoggedIn = true;  // Si encontramos el usuario con el token correcto
+        // El usuario ya está logueado, se devuelve el mismo token
+      break;
+    }
+  }
+  return userLoggedIn; 
+}
+
+
 // Función para manejar la solicitud de login
 void handleLogin() {
-  UserSession usuario;
+  UserSession usuario; 
+
+  //TODO: verificar que el usuario se encuentra logueado 
+
+  if(server.hasArg("Token"))
+  {
+    if(Validarsesion(server.arg("Token"), usuario)){
+      server.send(200, "text/plain", "Usuario ya conectado.");
+      return;
+    }
+  }
 
   if (server.hasArg("user") && server.hasArg("pass")) 
   {
     String User = server.arg("user");
     String Pass = server.arg("pass");
+    ServiciosSeguridad Validacion;
 
-    SecurityServices seguridad;
-    
-    usuario = seguridad.login_user(User, Pass);
+    usuario = Validacion.LoginUser(User, Pass);
 
-    if (usuario.StatusCode == 0)
+    if (usuario.StatusCode == 0) 
     {
-      //  OK, usuario validado -> agregar al vector
+      // Generamos un nuevo token para este usuario y lo añadimos
+      usuario.Token = generarToken();
+      usuario.LastLogin = millis(); // Marcar el tiempo del último login
+      // Si es válido, lo agregamos al vector de usuarios logueados
+      UsuariosLogueados.push_back(usuario);
+
       server.send(200, "text/plain", "Login exitoso. Token: " + usuario.Token);
-    }
-    else
+    } 
+    else 
     {
-      //  401 unauthorized
       // Si no es válido, mostramos un mensaje de error
       server.send(401, "text/plain", "Error: Usuario o contraseña incorrectos.");
     }
-
-  //   if (verificarUsuario(User, Pass, usuario)) {
-  //     // Generamos un nuevo token para este usuario y lo añadimos
-  //     usuario.Token = generarToken();
-  //     // Si es válido, lo agregamos al vector de usuarios logueados
-  //     UsuariosLogueados.push_back(usuario);
-  //     lastLoginTime = millis(); // Marcar el tiempo del último login
-  //     server.send(200, "text/plain", "Login exitoso. Token: " /*+ usuario.Token.c_str()*/);
-  //   } else {
-  //   }
   } 
-  else {
-    //  bad request: faltan datos en el mensaje
-    //
+  else 
+  {
     server.send(400, "text/plain", "Error: Parámetros de usuario y contraseña faltantes.");
   }
 }
@@ -201,7 +252,10 @@ void mostrarUsuariosLogueados() {
   }
 }
 
+
 void setup() {
+  g_min_log_level = LogLevel::Verbose;
+
   Serial.begin(115200);
   delay(10);
 
@@ -215,6 +269,41 @@ void setup() {
   }
   Serial.printf("\nConectado con MUTEX!!!\nDireccion IP: %s %s\n", WiFi.localIP(), WiFi.getHostname());
 
+  auto i = sizeof(__func__);
+  
+  char pirulo[100] ;
+
+  Serial.printf("Tamaño: %zd\n", i);
+  
+  strcpy(pirulo, __func__);
+
+  Serial.printf("Nombre: %s\n", pirulo);
+
+  //  LogTest(__func__);
+  //  const char* pp = __func__;
+  //  DumpMemory(pp, 16, "Desde setup ");
+
+  //  Log(__func__, LogLevel::Warning, "Valor %i\n", 12);
+  LOG_WARNING("Valor %i", 12);
+
+  std::string brian {"br.ian+brian-brian"};
+  std::regex emailNameValidator{R"(^([a-zA-Z0-9+-]+(\.[a-zA-Z0-9+-]+)*)$)"};
+
+  if (std::regex_match(brian, emailNameValidator))
+  {
+    printf("Valido!!\n");
+  }
+  else
+    printf("NOOOOOOOO Valido!!\n");
+
+  // try
+  // {
+  // }
+  // catch (std::exception ex)
+  // {
+  //   Serial.printf("Exception: %s\n", ex.what());
+  // }
+  
   
   //  WiFiManager wiFiManager;
   //  wiFiManager.resetSettings();
@@ -232,14 +321,14 @@ void setup() {
   //   Serial.println(WiFi.macAddress());
   // }
 
+  // Definir Pin para verificar solicitud HTTP
+  pinMode(Puerta, OUTPUT);
+  digitalWrite(Puerta, LOW);
+
   server.on("/get_mac", []() {
     String mac = WiFi.macAddress();
     server.send(200, "text/plain", mac);
   });
-
-  // Definir Pin para verificar solicitud HTTP
-  pinMode(Puerta, OUTPUT);
-  digitalWrite(Puerta, LOW);
 
   // Endpoint para login
   server.on("/login", HTTP_POST, handleLogin);
@@ -259,19 +348,63 @@ void setup() {
   });
 
   server.begin();
+
+  //  ets_task(mi_tarea, 2, cola, 10);
+
+  /*
+    Watchdog para indicar que estamos bien...todos los sistemas funcionando...  
+  
+  */
+  schedule_recurrent_function_us([]() 
+    {
+      static uint8_t estado = HIGH;
+
+      digitalWrite(Watchdog_Pin, estado);
+
+      //Serial.printf("Hola aca estoy...Estado = %i\n", estado);
+      estado = (estado == HIGH) ? LOW : HIGH;
+
+      return true;
+    }, Watchdog_Time);
+
+  DiaSemana dia = Lunes;
+
+  Serial.printf("sizeof(uint8_t) = %zd\n", sizeof(uint8_t));
+  Serial.printf("sizeof(uint16_t) = %zd\n", sizeof(uint16_t));
+  Serial.printf("sizeof(uint32_t) = %zd\n", sizeof(uint32_t));
+  Serial.printf("sizeof(DiaSemana) = %zd\n", sizeof(DiaSemana));
+  Serial.printf("sizeof(Horario) = %zd\n", sizeof(Horario));
 }
 
 void loop() {
   server.handleClient(); // Mantenemos el servidor funcionando
 
   // Mostrar los usuarios logueados cada cierto tiempo
-  mostrarUsuariosLogueados();
+  //mostrarUsuariosLogueados();
 
   // Verificar si la sesión ha expirado (15 minutos)
-  if (millis() - lastLoginTime > sessionLimit) {
-    UsuariosLogueados.clear();  // Limpiar los usuarios logueados después de 15 minutos
-    Serial.println("Sesión expirada, usuarios desconectados.");
-  }
 
-  delay(10000);  // Muestra los usuarios cada 10 segundos
+  // if (millis() - lastLoginTime > sessionLimit) {
+  //   UsuariosLogueados.clear();  // Limpiar los usuarios logueados después de 15 minutos
+  //   Serial.println("Sesión expirada, usuarios desconectados.");
+  // }
+
+  //  ojo con este delay que me esta haciendo lento todo el sistema!!
+  //
+  //delay(10000);  // Muestra los usuarios cada 10 segundos
+  //  ets_post(2, 0, 0);
+
 }
+
+//  probamos si la funcionalidad de task se puede usar...
+//
+
+// void mi_tarea(ETSEvent* eventos)
+// {
+//   Serial.printf("Hola aca estoy...\n");
+//   //  esp_schedule();
+//   //esp_suspend();
+//   esp_delay(2000);
+//   esp_yield();
+//   //  ets_post(1, 0, 0);
+// }

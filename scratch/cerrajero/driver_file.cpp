@@ -1,25 +1,28 @@
+//
+// Created by ethed on 14/12/2024.
+//
 
 #include "driver_file.h"
-#include <stdio.h>
 #include <cstring>
+#include <cstdio>
 
-DBUsuario 
-FileDriver::findUsuario(std::string id, bool& found)
+Entidades::Usuario
+FileDriver::FindUsuario(std::string& id)
 {
   //  llevarlo al ctor
   //
   FILE* dbUsers =  fopen("userdb", "r");
 
   //  por defecto no lo encontramos
-  found = false;
+  bool found = false;
 
   //  validar que el archivo exista...
 
-  DBUsuario* pattern = new DBUsuario();
-  
-  while (fread(pattern, sizeof(DBUsuario), 1, dbUsers) == 1)
+  Entidades::Usuario* pattern = new Entidades::Usuario();
+
+  while (fread(pattern, sizeof(Entidades::Usuario), 1, dbUsers) == 1)
   {
-    if (strcmp(pattern->email, id.c_str()) == 0)
+    if (strcmp(pattern->Email.c_str(), id.c_str()) == 0)
     {
       //  encontrado, retornar este dato
 
@@ -35,8 +38,8 @@ FileDriver::findUsuario(std::string id, bool& found)
 }
 
 
-bool 
-FileDriver::addUsuario(DBUsuario nuevo)
+bool
+FileDriver::AddUsuario(Entidades::Usuario& nuevo)
 {
   //  llevarlo al ctor
   //
@@ -45,22 +48,13 @@ FileDriver::addUsuario(DBUsuario nuevo)
   //  validar que el archivo exista...
   //  ir al final del archivo
 
-  DBUsuario* pattern = new DBUsuario();
-  
-  while (fread(pattern, sizeof(DBUsuario), 1, dbUsers) == 1)
-  {
-    if (strcmp(pattern->email, id.c_str()) == 0)
-    {
-      //  encontrado, retornar este dato
+  Entidades::Usuario* pattern = new Entidades::Usuario();
 
-      delete pattern;
-      found = true;
-      return (*pattern);  //  obvio que no
-    }
+  while (fread(pattern, sizeof(Entidades::Usuario), 1, dbUsers) == 1)
+  {
   }
   delete pattern;
 
   fclose(dbUsers);  //  al dtor
-  return *pattern;  //  obvio que no
-
+  return false;
 }

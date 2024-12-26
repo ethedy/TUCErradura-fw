@@ -1,25 +1,35 @@
+/*
+ *
+ *
+ *
+ */
+
 
 #ifndef REPOSITORIOS_H
 #define REPOSITORIOS_H
 
-#include "driver_file.h"
 #include <string>
 
-struct UsuarioDTO 
+#include "DbContext.h"
+#include "driver_memory.h"
+
+
+namespace Datos
 {
-  std::string Nombre;
-  std::string Password;
-  std::string Rol;
-  std::string Mail;
+  class RepositorioUsuarios
+  {
+  private:
+    DbContext& m_ctx;
+
+  public:
+    RepositorioUsuarios(): m_ctx(DbContext::GetInstance()) { }
+
+    std::pair<Usuario, bool> GetUserFromId(const std::string& id) const;
+
+    bool AddUser(const std::string& id, const std::string& nombre, const std::string& pass, const std::string& rol) const;
+  };
+
 }
 
-class RepositorioUsuarios 
-{
-public:
-  UsuarioDTO* getUserFromId(const std::string& id):
 
-  bool addUser(const std::string& id, const std::string& nombre, const std::string& pass, const std::string& rol);
-};
-
-
-#endif
+#endif //REPOSITORIOS_H
