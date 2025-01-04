@@ -5,7 +5,7 @@
 //  Limites para los diferentes datos almacenados en la DB
 
 #define MIN_EMAIL_LENGTH          10
-#define MAX_EMAIL_LENGTH          40
+#define MAX_EMAIL_LENGTH          400
 #define MAX_EMAIL_NAME_LENGTH     18
 
 #define MIN_NOMBRE_LENGTH          6

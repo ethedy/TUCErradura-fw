@@ -16,11 +16,14 @@
 //  #include <WString.h>
 //  #include "wifi_selector.h"
 //  #include <esp_system.h>
+#include <Arduino.h>
 #include <pins_arduino.h>
 #include <ets_sys.h>
 #include <gpio.h>
 #include <Schedule.h>
 #include <HardwareSerial.h>
+#include <time.h>
+#include <sys/time.h>
 
 #include "Utiles.h"
 #include "Servicios.h"
@@ -29,7 +32,8 @@
 #include <vector>  
 #include <algorithm>
 #include <string>
-#include <regex>
+//  #include <regex>
+#include <chrono>
 
 
 using namespace Servicios;
@@ -47,9 +51,20 @@ const int Puerta = 2;                   // Pin del LED
 const uint8_t  Watchdog_Pin = 2;
 const uint32_t Watchdog_Time =  1 * 1000000;
 
+const char* Datetime_Header = "X-Tuse-Datetime";
+const char* Token_Header = "X-Tuse-Token";
+
 //ETSEvent cola[10];
 
 std::vector<Servicios::UserSession> UsuariosLogueados;  // Vector para almacenar los usuarios logueados
+
+
+/*
+*/
+void TryProcessDatetimeHeader();
+
+String TryGetTokenFromRequest();
+
 
 // Función para generar un token único
 String generarToken() {
@@ -118,6 +133,8 @@ bool Validarsesion(String Token, UserSession& u){
 
 // Función para manejar la solicitud de login
 void handleLogin() {
+  TryProcessDatetimeHeader();   //  siempre tratamos de aprovechar el header de datetime
+
   UserSession usuario; 
 
   //TODO: verificar que el usuario se encuentra logueado 
@@ -162,6 +179,8 @@ void handleLogin() {
 
 // Lógica para abrir la puerta
 void handleOpenDoor() {
+  TryProcessDatetimeHeader();   //  siempre tratamos de aprovechar el header de datetime  
+
   if (server.hasArg("user") && server.hasArg("token")) {
     String User = server.arg("user");  // Recuperamos el usuario desde los parámetros del POST
     String Token = server.arg("token"); // Recuperamos el token desde los parámetros del POST
@@ -191,8 +210,11 @@ void handleOpenDoor() {
 }
 
 // Función para agregar un nuevo usuario
-void handleAddUser() {
-  if (server.hasArg("user") && server.hasArg("pass") && server.hasArg("rol")) {
+void handleAddUser() 
+{
+  TryProcessDatetimeHeader();   //  siempre tratamos de aprovechar el header de datetime
+
+  if (server.hasArg("user") && server.hasArg("pass") && server.hasArg("name") && server.hasArg("rol")) {
     String newUser = server.arg("user");
     String newPass = server.arg("pass");
     String newRol = server.arg("rol");
@@ -219,7 +241,10 @@ void handleAddUser() {
 }
 
 // Función para eliminar un usuario
-void handleDeleteUser() {
+void handleDeleteUser() 
+{
+  TryProcessDatetimeHeader();   //  siempre tratamos de aprovechar el header de datetime
+
   if (server.hasArg("user")) {
     String userToDelete = server.arg("user");
 
@@ -253,6 +278,21 @@ void mostrarUsuariosLogueados() {
 }
 
 
+/*
+*/
+void TryProcessDatetimeHeader()
+{
+  if (server.hasHeader(Datetime_Header))
+  {
+    String dtValue = server.header(Datetime_Header);
+
+    LOG_DEBUG("Encontramos el header de fecha/hora: %s", dtValue.c_str());
+  }
+  else
+    LOG_WARNING("Request sin header de fecha/hora");
+}
+
+
 void setup() {
   g_min_log_level = LogLevel::Verbose;
 
@@ -260,14 +300,14 @@ void setup() {
   delay(10);
 
   WiFi.mode(WIFI_STA);
-  WiFi.begin("MUTEX", "****");
+  WiFi.begin("MUTEX", "sqlSDK@1967");
   
   while (WiFi.status() != WL_CONNECTED) 
   {
     esp_delay(500);
     Serial.print(".");
   }
-  Serial.printf("\nConectado con MUTEX!!!\nDireccion IP: %s %s\n", WiFi.localIP(), WiFi.getHostname());
+  Serial.printf("\nConectado con MUTEX!!!\nDireccion IP: %s %s\n", WiFi.localIP().toString().c_str(), WiFi.getHostname());
 
   auto i = sizeof(__func__);
   
@@ -325,6 +365,8 @@ void setup() {
   pinMode(Puerta, OUTPUT);
   digitalWrite(Puerta, LOW);
 
+  server.collectHeaders(Datetime_Header, Token_Header);
+
   server.on("/get_mac", []() {
     String mac = WiFi.macAddress();
     server.send(200, "text/plain", mac);
@@ -349,6 +391,21 @@ void setup() {
 
   server.begin();
 
+  //  seteamos una fecha/hora totalmente arbitraria
+  std::tm settime {
+    .tm_sec = 0, .tm_min = 44, .tm_hour = 2,
+    .tm_mday = 3, .tm_mon = 0, .tm_year = 2025 - 1900
+  };
+  
+  time_t ticks = mktime(&settime);
+
+  timeval tv {
+    .tv_sec = ticks,
+    .tv_usec = 0
+  };
+
+  settimeofday(&tv, nullptr);
+
   //  ets_task(mi_tarea, 2, cola, 10);
 
   /*
@@ -358,10 +415,27 @@ void setup() {
   schedule_recurrent_function_us([]() 
     {
       static uint8_t estado = HIGH;
+      static char buffer[50];   //  para mostrar fecha/hora simples
+
+      //  imprime la fecha y hora cada segundo...
+      //      
+      // std::time_t t_ticks = time(nullptr);
+      // std::tm* t_local = localtime(&t_ticks) ;    //  ojo este struct esta creado en el sistema
+      // std::strftime(buffer, 49, "%c", t_local);
+      // Serial.printf("%s\n", buffer);
+
+      //  experimentos con chrono...
+      //
+      //  ahora es time_point<system_clock>
+      // auto ahora = std::chrono::system_clock::now();
+      // std::time_t ahora_t = std::chrono::system_clock::to_time_t(ahora);
+      
+      // Serial.printf("time_t --> %lld ; count --> %lld\n", ahora_t, ahora.time_since_epoch().count());
 
       digitalWrite(Watchdog_Pin, estado);
 
       //Serial.printf("Hola aca estoy...Estado = %i\n", estado);
+
       estado = (estado == HIGH) ? LOW : HIGH;
 
       return true;

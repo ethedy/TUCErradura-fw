@@ -167,7 +167,6 @@ namespace Servicios
       LOG_WARNING("El email esta vacio o tiene solo espacios");
       return false;
     }
-
     //  hacer el trim() para chequear realmente la parte que interesa
     //
     std::string check = AllTrim(email);
@@ -204,6 +203,7 @@ namespace Servicios
       LOG_WARNING("La direccion de mail debe tener un @ (%s)", check.c_str());
       return false;
     }
+
     std::string parte = check.substr(0, posArroba);
 
     if (ValidarEmailNombre(parte)) 
@@ -292,30 +292,110 @@ namespace Servicios
 
   bool ServiciosValidacion::ValidarEmailNombre(const std::string& nombre)
   {
-    if (nombre.size() > MAX_EMAIL_NAME_LENGTH)
+    // if (nombre.size() > MAX_EMAIL_NAME_LENGTH)
+    // {
+    //   LOG_ERROR("Por razones de STACK el nombre de la direccion de email pasada (%s) no puede superar los %i caracteres", 
+    //     nombre.c_str(), MAX_EMAIL_NAME_LENGTH);
+    //   return false;
+    // }
+    //  regex emailNameValidator{R"(^([a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*)$)"};
+    //
+    //  no empieza con punto
+    //  no termina con punto
+    //  no tiene dos puntos consecutivos
+    //
+    if (nombre.front() == '.' || nombre.back() == '.' || nombre.find("..") != std::string::npos)
     {
-      LOG_ERROR("Por razones de STACK el nombre de la direccion de email pasada (%s) no puede superar los %i caracteres", 
-        nombre.c_str(), MAX_EMAIL_NAME_LENGTH);
+      LOG_WARNING("El nombre [%s] empieza o termina con punto (.) o contiene dos puntos (..) consecutivos", nombre.c_str());
       return false;
     }
-    if (!std::regex_match(nombre, m_emailNameValidator))
+    //  solo contiene caracteres validos: a-zA-Z0-9$%&+_-
+    //
+    const char validos[] = "$%&+_-.";
+
+    for (char c: nombre)
     {
-      LOG_WARNING("El nombre de la direccion de email pasada (%s) no se corresponde con el standard valido. Probar algo como nombre@dominio.com", 
-        nombre.c_str());
-      return false;
+      //  isalnum() --> a-zA-Z0-9
+      //  $%&+_-.
+      if (!(isalnum(c) || strchr(validos, c) != nullptr))
+      {
+        LOG_WARNING("El nombre [%s] no contiene caracteres validos (alfanumericos o $%&+_-.)", nombre.c_str());
+        return false;
+      }
     }
     return true;
   }
 
   bool ServiciosValidacion::ValidarEmailDominio(const std::string& dominio)
   {
-    if (!std::regex_match(dominio, m_emailDomainValidator))
+    bool result = false;
+
+    //  regex emailDomainValidator{R"(^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*(?:\.[a-zA-Z]{2,})+$)"};
+    //
+    //  no empieza con punto
+    //  no termina con punto
+    //  no tiene dos puntos consecutivos
+    //
+    if (dominio.front() == '.' || dominio.back() == '.' || dominio.find("..") != std::string::npos)
     {
-      LOG_WARNING("El dominio de la direccion de email pasada (%s) no se corresponde con el standard valido. Probar algo como nombre@dominio.com", 
-        dominio.c_str());
+      LOG_WARNING("El dominio [%s] empieza o termina con punto (.) o contiene dos puntos (..) consecutivos", dominio.c_str());
+      return result;
+    }
+    //  debe contener al menos un punto...o sea al menos dos fragmentos
+    //
+    auto posPunto = dominio.find('.');
+    int pos = 0;
+
+    //  el primer fragmento es especial porque puede no tiene limite inferior y porque puede contener guiones (no seguidos)
+    //
+    std::string fragmento = dominio.substr(pos, posPunto);
+
+    if (fragmento.front() == '-' || fragmento.back() == '-' || fragmento.find("--") != std::string::npos)
+    {
+      LOG_WARNING("El frag1 del dominio [%s] empieza o termina con guion (-) o contiene dos guiones (--) consecutivos\n", dominio.c_str());
       return false;
     }
-    return true;
+    for (char c: fragmento)
+    {
+      //  isalnum() --> a-zA-Z0-9
+      //  -
+      if (!(isalnum(c) || c == '-'))
+      {
+        LOG_WARNING("El frag1 del dominio [%s] no contiene caracteres validos (alfanumericos o -)\n", dominio.c_str());
+        return false;
+      }
+    }
+    //  resto de los fragmentos, solo caracteres alfanumericos y minimo tamaño de 2
+    //
+    bool exitDo = false;
+    do
+    {
+      //  buscamos el siguiente punto, primero guardamos la posicion del punto previo
+      //
+      pos = posPunto+1;
+      posPunto = dominio.find('.', pos);
+
+      if (posPunto != std::string::npos)
+        fragmento = dominio.substr(pos, posPunto-pos);
+      else
+      {
+        fragmento = dominio.substr(pos);
+        exitDo = true;
+      }
+      if (fragmento.size() < 2)
+      {
+        LOG_WARNING("El frag2+ del dominio [%s] es menor a 2 caracteres", dominio.c_str());
+      }
+      for (char c: fragmento)
+      {
+        if (!isalnum(c))
+          LOG_WARNING("El frag2+ del dominio [%s] no contiene caracteres alfanumericos validos", dominio.c_str());
+      }
+    } while (!exitDo);
+
+    result =true;
+
+    return result;
   }
 
 }
